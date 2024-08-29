@@ -37,8 +37,6 @@ struct ContentView: View {
     
     
     var body: some View {
-        
-    
             NavigationView {
                 Group {
                     if !isGrideViewAcrive {
@@ -52,9 +50,13 @@ struct ContentView: View {
                                     AnimalListItemView(animal: animal)
                                 }//LINK
                             }//Loop
+                            
+                           CreditsView()
+                                .modifier(CenterModifier())
+                               
                         }//Grid
-                        .padding(10)
-                        .animation(.easeIn)
+                        .listStyle(PlainListStyle())
+                       
                     } else {
                         ScrollView(.vertical) {
                             LazyVGrid(columns: grideLayout, content: {
